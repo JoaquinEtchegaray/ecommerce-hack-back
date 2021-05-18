@@ -9,14 +9,15 @@ const OrderProductModel = require("./Order-product.js");
 const StatusModel = require("./Status.js");
 
 const sequelize = new Sequelize(
-  process.env.DATABASE,
-  process.env.USER,
-  process.env.PASS,
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASS,
   {
-    host: process.env.HOST,
+    host: process.env.DB_HOST,
     dialect: "mysql",
   }
 );
+console.log("esto es el texto", process.env.USER);
 
 const Category = CategoryModel(sequelize, Sequelize);
 const Product = ProductModel(sequelize, Sequelize);

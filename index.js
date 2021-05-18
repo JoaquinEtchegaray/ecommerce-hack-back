@@ -8,6 +8,7 @@ const app = express();
 const seeder = require("./seeder");
 
 const db = require("./models/index");
+
 db.sequelize.sync({ force: true }).then(() => console.log("Tables created!"));
 
 seeder();
