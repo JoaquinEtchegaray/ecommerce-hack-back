@@ -5,12 +5,12 @@ const app = express();
 
 //const routes = require("./routes/routes");
 
-//const randomValues = require("./seeder");
+const seeder = require("./seeder");
 
-const db = require("./my-project/models/index");
+const db = require("./models/index");
 //db.sequelize.sync({ force: true }).then(() => console.log("Tables created!"));
 
-// randomValues();
+seeder();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
