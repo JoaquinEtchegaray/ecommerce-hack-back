@@ -5,16 +5,16 @@ const { Product } = require("../models/index");
 
 module.exports = {
   showHome: async function (req, res) {
-    let categoryId = req.params.categoryId;
+    let important = req.params.important;
     const products = await Product.findAll({
       limit: 10,
       order: [["createdAt", "DESC"]],
-      where: { categoryId: categoryId },
+      where: { important: important },
     });
     res.json({ products });
   },
 
-  showSingleArticle: async function (req, res) {
+  showSingleProduct: async function (req, res) {
     try {
       let slug = req.params.slug;
       const product = await Product.findAll({
