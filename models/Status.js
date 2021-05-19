@@ -1,21 +1,12 @@
-'use strict';
+"use strict";
 
 module.exports = (sequelize, DataTypes) => {
-  const Status = sequelize.define('status', {
-    status: {
+  const Status = sequelize.define("status", {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
-      field: 'status'
     },
-    createdAt: {
-      type: DataTypes.DATE,
-      field: 'created_at'
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      field: 'updated_at'
-    }
-  }, { tableName: 'statuses' });
+  });
 
   return Status;
 };

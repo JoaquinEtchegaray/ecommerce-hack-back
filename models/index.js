@@ -17,7 +17,6 @@ const sequelize = new Sequelize(
     dialect: "mysql",
   }
 );
-console.log("esto es el texto", process.env.USER);
 
 const Category = CategoryModel(sequelize, Sequelize);
 const Product = ProductModel(sequelize, Sequelize);
@@ -33,7 +32,7 @@ Product.belongsToMany(Order, {
   through: OrderProduct,
 });
 
-//Category.hasMany(Product);
+Category.belongsTo(Product);
 
 Product.hasOne(Category);
 
@@ -44,7 +43,6 @@ Order.belongsTo(User);
 Order.hasOne(Status);
 
 Status.belongsTo(Order);
-
 module.exports = {
   sequelize,
   Sequelize,

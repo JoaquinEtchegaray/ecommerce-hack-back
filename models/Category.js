@@ -1,26 +1,13 @@
 "use strict";
 
 module.exports = (sequelize, DataTypes) => {
-  const Category = sequelize.define(
-    "category",
-    {
-      category: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-        field: "category",
-      },
-      createdAt: {
-        type: DataTypes.DATE,
-        field: "created_at",
-      },
-      updatedAt: {
-        type: DataTypes.DATE,
-        field: "updated_at",
-      },
+  const Category = sequelize.define("category", {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
-    { tableName: "categories" }
-  );
+  });
 
   return Category;
 };

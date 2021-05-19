@@ -101,7 +101,7 @@ const seeder = async () => {
       stock: "30",
       categoryId: "2",
       important: "true",
-      slug: "Jacket",
+      slug: "jacket",
     },
     {
       name: "Women's Stretch Cotton Raglan Sleeve Tee",
@@ -281,7 +281,7 @@ const seeder = async () => {
       stock: 22,
       categoryId: 5,
       important: "true",
-      slug: "silverWatch",
+      slug: "silver-watch",
     },
     {
       name: "Neck Back shirt",
@@ -293,7 +293,7 @@ const seeder = async () => {
       stock: 2,
       categoryId: 1,
       important: "false",
-      slug: "neckBack",
+      slug: "neck-back",
     },
     {
       name: "Leather Bag",
@@ -305,7 +305,7 @@ const seeder = async () => {
       stock: 14,
       categoryId: 3,
       important: "true",
-      slug: "leatherBag",
+      slug: "leather-bag",
     },
     {
       name: "Laptop Tote Bag ",
@@ -317,7 +317,7 @@ const seeder = async () => {
       stock: 15,
       categoryId: 3,
       important: "false",
-      slug: "laptopBag",
+      slug: "laptop-bag",
     },
     {
       name: "Fashion Sneakers",
@@ -334,27 +334,27 @@ const seeder = async () => {
   ];
   const category = [
     {
-      category: "Women",
+      name: "Women",
     },
     {
-      category: "Men",
+      name: "Men",
     },
     {
-      category: "Bag",
+      name: "Bag",
     },
     {
-      category: "Shoes",
+      name: "Shoes",
     },
     {
-      category: "Watches",
+      name: "Watches",
     },
   ];
 
   const status = [
-    { status: "paid" },
-    { status: "unpaid" },
-    { status: "delivered" },
-    { status: "undelivered" },
+    { name: "paid" },
+    { name: "unpaid" },
+    { name: "delivered" },
+    { name: "undelivered" },
   ];
 
   await models.User.bulkCreate(users);
