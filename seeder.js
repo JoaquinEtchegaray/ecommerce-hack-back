@@ -97,9 +97,9 @@ const seeder = async () => {
         "Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.",
       image:
         "https://preview.colorlib.com/theme/cozastore/images/xproduct-detail-01.jpg.pagespeed.ic.p3moSJxG7I.webp",
-      price: "58.79",
-      stock: "30",
-      categoryId: "2",
+      price: 58,
+      stock: 30,
+      categoryId: 2,
       isActive: "true",
       slug: "jacket",
       isFeatured: true,
@@ -110,7 +110,7 @@ const seeder = async () => {
         "Super soft cotton-rich fabric moves with you for all-day ease",
       image:
         "https://preview.colorlib.com/theme/cozastore/images/xproduct-01.jpg.pagespeed.ic.6WHvZRJRuO.webp",
-      price: 21.03,
+      price: 21,
       stock: 50,
       categoryId: 1,
       isActive: "true",
