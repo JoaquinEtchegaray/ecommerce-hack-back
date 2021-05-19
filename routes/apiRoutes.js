@@ -10,6 +10,11 @@ router.post("/users", registerController.store);
 router.post("/tokens", loginController.login);
 
 router.get("/products", productController.showHome);
+router.get("/products/:slug", productController.showSingleProduct);
+
+router.post("/products", productController.store);
+router.patch("/products/slug o id", checkAuthor, productController.update);
+router.delete("/product", checkAuthor, productController.destroy);
 
 router.use(
   checkToken({ secret: process.env.SECRET_TEXT, algorithms: ["HS256"] })
