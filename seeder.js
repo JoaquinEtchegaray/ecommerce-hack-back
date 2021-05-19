@@ -378,8 +378,9 @@ const seeder = async () => {
   ];
 
   await models.User.bulkCreate(users);
-  await models.Product.bulkCreate(products);
   await models.Category.bulkCreate(category);
+
+  await models.Product.bulkCreate(products);
   await models.Status.bulkCreate(status);
   console.log("[Database] Se corrió el seeder de Articles, Users y Comments.");
 };
