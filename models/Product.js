@@ -16,20 +16,25 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    stock: {
-      type: DataTypes.INTEGER,
-    },
     categoryId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    important: {
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    isFeatured: {
       type: DataTypes.BOOLEAN,
+      allowNull: false,
     },
     slug: {
       type: DataTypes.STRING,
     },
+    isActive: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
   });
-
   return Product;
 };

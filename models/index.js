@@ -22,7 +22,7 @@ const Category = CategoryModel(sequelize, Sequelize);
 const Product = ProductModel(sequelize, Sequelize);
 const User = UserModel(sequelize, Sequelize);
 const Order = OrderModel(sequelize, Sequelize);
-const OrderProduct = OrderProductModel(sequelize, Sequelize);
+const OrderProduct = OrderProductModel(sequelize, Sequelize, Order, Product);
 const Status = StatusModel(sequelize, Sequelize);
 
 Order.belongsToMany(Product, {
@@ -32,17 +32,19 @@ Product.belongsToMany(Order, {
   through: OrderProduct,
 });
 
-Category.belongsTo(Product);
+Category.hasMany(Product);
 
-Product.hasOne(Category);
+Product.belongsTo(Category);
 
 User.hasMany(Order);
 
+Order.hasMany(Product);
+
 Order.belongsTo(User);
 
-Order.hasOne(Status);
+Order.belongsTo(Status);
 
-Status.belongsTo(Order);
+Status.hasMany(Order);
 module.exports = {
   sequelize,
   Sequelize,
