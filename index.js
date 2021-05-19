@@ -9,9 +9,10 @@ const seeder = require("./seeder");
 
 const db = require("./models/index");
 
-db.sequelize.sync({ force: true }).then(() => console.log("Tables created!"));
-
-seeder();
+db.sequelize.sync({ force: true }).then(() => {
+  seeder();
+  console.log("Tables created!");
+});
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

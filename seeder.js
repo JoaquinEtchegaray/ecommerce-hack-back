@@ -12,7 +12,7 @@ const img = [
 ];
 
 const seeder = async () => {
-  await models.sequelize.sync({ force: true }).then(() => console.log("done")); // SOLO PARA CREAR TABLA DESDE CERO y borra tablas viejas
+  // SOLO PARA CREAR TABLA DESDE CERO y borra tablas viejas
 
   const users = [
     {
@@ -377,10 +377,9 @@ const seeder = async () => {
     { name: "undelivered" },
   ];
 
-  await models.User.bulkCreate(users);
   await models.Category.bulkCreate(category);
-
   await models.Product.bulkCreate(products);
+  await models.User.bulkCreate(users);
   await models.Status.bulkCreate(status);
   console.log("[Database] Se corrió el seeder de Articles, Users y Comments.");
 };
