@@ -3,16 +3,16 @@ const express = require("express");
 const app = express();
 //const adminRoutes = require("./routes/adminRoutes");
 
-//const routes = require("./routes/routes");
+const routes = require("./routes/apiRoutes");
 
 const seeder = require("./seeder");
 
 const db = require("./models/index");
 
-db.sequelize.sync({ force: true }).then(() => {
+/* db.sequelize.sync({ force: true }).then(() => {
   seeder();
   console.log("Tables created!");
-});
+}); */
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

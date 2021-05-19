@@ -5,11 +5,12 @@ const slugify = require("slugify");
 
 module.exports = {
   showHome: async function (req, res) {
-    let important = req.params.important;
+    console.log(req.params);
+    let isFeatured = req.params.isFeatured;
     const products = await Product.findAll({
       limit: 10,
       order: [["createdAt", "DESC"]],
-      where: { important: important },
+      where: { isFeatured: isFeatured },
     });
     res.json({ products });
   },
@@ -23,7 +24,6 @@ module.exports = {
 
       res.json({ product });
     } catch (error) {
-      let error = err.message;
       res.status(400).json({
         error,
       });
@@ -61,7 +61,6 @@ module.exports = {
         ok: true,
       });
     } catch (error) {
-      let error = err.message;
       res.status(400).json({
         error,
       });
@@ -87,7 +86,6 @@ module.exports = {
         ok: true,
       });
     } catch (error) {
-      let error = err.message;
       res.status(404).json({
         error,
       });
