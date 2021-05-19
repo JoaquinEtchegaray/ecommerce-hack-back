@@ -38,8 +38,6 @@ Product.belongsTo(Category);
 
 User.hasMany(Order);
 
-Order.hasMany(Product);
-
 Order.belongsTo(User);
 
 Order.belongsTo(Status);
