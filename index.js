@@ -10,10 +10,10 @@ const seeder = require("./seeder");
 const db = require("./models/index");
 
 // SOLO PARA CREAR TABLA DESDE CERO y borra tablas viejas
-db.sequelize.sync({ force: true }).then(() => {
-  seeder();
-  console.log("Tables created!");
-});
+// db.sequelize.sync({ force: true }).then(() => {
+//   seeder();
+//   console.log("Tables created!");
+// });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

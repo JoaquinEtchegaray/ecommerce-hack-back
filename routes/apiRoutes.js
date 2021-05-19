@@ -16,10 +16,14 @@ const checkToken = require("express-jwt");
 
 // Mostrar productos en home y en página de producto
 router.get("/products", productController.showHome);
-router.get("/products/:slug", productController.showSingleProduct);
+router.get("/products/:slug", productController.showSingleProductSlug);
+router.get(
+  "/products/category/:categoryId",
+  productController.showByCategoryId
+);
 // CRUD de productos
-// router.post("/products", productController.store);
-// router.patch("/products/slug o id", checkAuthor, productController.update);
+router.post("/products", productController.create);
+router.patch("/products/:id", productController.update); // el id habría que pasarlo por params o por el body?
 // router.delete("/product", checkAuthor, productController.destroy); //no se puede borrar producto si todavía no borraste las órdenes que contengan dicho producto, ya no borrar, sino que dejar inactivo
 
 // router.use(

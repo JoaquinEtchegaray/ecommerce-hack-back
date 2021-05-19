@@ -12,7 +12,7 @@ module.exports = {
     res.json({ products });
   },
 
-  showSingleProduct: async function (req, res) {
+  showSingleProductSlug: async function (req, res) {
     try {
       let slug = req.params.slug;
       const product = await Product.findAll({
@@ -21,7 +21,21 @@ module.exports = {
 
       res.json({ product });
     } catch (error) {
-      // let error = err.message;
+      res.status(400).json({
+        error,
+      });
+    }
+  },
+
+  showByCategoryId: async function (req, res) {
+    try {
+      let categoryId = req.params.categoryId;
+      const product = await Product.findAll({
+        where: { categoryId: categoryId },
+      });
+
+      res.json({ product });
+    } catch (error) {
       res.status(400).json({
         error,
       });
@@ -30,62 +44,64 @@ module.exports = {
 
   create: async function (req, res) {
     try {
-      let { name, description, image, price, stock, categoryId, isFeatured } =
-        req.body;
+      let {
+        name,
+        description,
+        image,
+        price,
+        categoryId,
+        stock,
+        isFeatured,
+        isActive,
+      } = req.body;
       const product = await Product.create({
         name,
         description,
         image,
         price,
-        stock,
         categoryId,
+        stock,
         isFeatured,
+        isActive,
         slug: slugify(name.toLowerCase()),
       });
       res.json({ product });
     } catch (err) {
-      // let error = err.message;
       res.status(400).json({
-        error,
-      });
-    }
-  },
-
-  destroy: async function (req, res) {
-    try {
-      let { id } = req.body;
-      await Product.destroy({ where: { id: id } });
-      res.json({
-        ok: true,
-      });
-    } catch (error) {
-      // let error = err.message;
-      res.status(400).json({
-        error,
+        err,
       });
     }
   },
 
   update: async function (req, res) {
     try {
-      let { id } = req.body;
-      let { name, description, image, price, stock, categoryId, important } =
-        req.body;
+      let id = req.params.id;
+      let {
+        name,
+        description,
+        image,
+        price,
+        categoryId,
+        stock,
+        isFeatured,
+        isActive,
+      } = req.body;
       const product = await Product.findByPk(id);
       await product.update({
         name,
         description,
         image,
         price,
-        stock,
         categoryId,
-        important,
+        stock,
+        isFeatured,
+        isActive,
+        slug: slugify(name.toLowerCase()),
       });
       res.json({
         ok: true,
       });
     } catch (error) {
-      // let error = err.message;
       res.status(404).json({
         error,
       });

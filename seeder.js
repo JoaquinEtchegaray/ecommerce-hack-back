@@ -109,7 +109,7 @@ const seeder = async () => {
       stock: 30,
       categoryId: 2,
       isActive: true,
-      slug: "jacket",
+      slug: "light-jacket",
       isFeatured: true,
     },
     {
