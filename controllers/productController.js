@@ -5,11 +5,9 @@ const slugify = require("slugify");
 
 module.exports = {
   showHome: async function (req, res) {
-    let important = req.params.important;
     const products = await Product.findAll({
-      limit: 10,
       order: [["createdAt", "DESC"]],
-      where: { important: important },
+      where: { isFeatured: true },
     });
     res.json({ products });
   },
@@ -23,7 +21,7 @@ module.exports = {
 
       res.json({ product });
     } catch (error) {
-      let error = err.message;
+      // let error = err.message;
       res.status(400).json({
         error,
       });
@@ -32,7 +30,7 @@ module.exports = {
 
   create: async function (req, res) {
     try {
-      let { name, description, image, price, stock, categoryId, important } =
+      let { name, description, image, price, stock, categoryId, isFeatured } =
         req.body;
       const product = await Product.create({
         name,
@@ -41,12 +39,12 @@ module.exports = {
         price,
         stock,
         categoryId,
-        important,
+        isFeatured,
         slug: slugify(name.toLowerCase()),
       });
       res.json({ product });
     } catch (err) {
-      let error = err.message;
+      // let error = err.message;
       res.status(400).json({
         error,
       });
@@ -61,7 +59,7 @@ module.exports = {
         ok: true,
       });
     } catch (error) {
-      let error = err.message;
+      // let error = err.message;
       res.status(400).json({
         error,
       });
@@ -87,7 +85,7 @@ module.exports = {
         ok: true,
       });
     } catch (error) {
-      let error = err.message;
+      // let error = err.message;
       res.status(404).json({
         error,
       });

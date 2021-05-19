@@ -3,12 +3,13 @@ const express = require("express");
 const app = express();
 //const adminRoutes = require("./routes/adminRoutes");
 
-//const routes = require("./routes/routes");
+const routes = require("./routes/apiRoutes");
 
 const seeder = require("./seeder");
 
 const db = require("./models/index");
 
+// SOLO PARA CREAR TABLA DESDE CERO y borra tablas viejas
 db.sequelize.sync({ force: true }).then(() => {
   seeder();
   console.log("Tables created!");
@@ -18,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //app.use(adminRoutes);
 
-//app.use(routes);
+app.use(routes);
 
 // app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(__dirname + "/public"));

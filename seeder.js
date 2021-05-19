@@ -12,8 +12,6 @@ const img = [
 ];
 
 const seeder = async () => {
-  // SOLO PARA CREAR TABLA DESDE CERO y borra tablas viejas
-
   const users = [
     {
       firstName: "Claudio",
@@ -22,6 +20,7 @@ const seeder = async () => {
       address: "calamuchita 222",
       phone: 09983215,
       role: "costumer",
+      isActive: true,
     },
     {
       firstName: "Daniel",
@@ -30,6 +29,7 @@ const seeder = async () => {
       address: "fierro 352",
       phone: 09523169,
       role: "costumer",
+      isActive: true,
     },
     {
       firstName: "Laura",
@@ -38,6 +38,7 @@ const seeder = async () => {
       address: "termo 4455",
       phone: 094222557,
       role: "costumer",
+      isActive: true,
     },
     {
       firstName: "Pedro",
@@ -46,6 +47,7 @@ const seeder = async () => {
       address: "Bv Artigas 4478",
       phone: 099522741,
       role: "costumer",
+      isActive: true,
     },
     {
       firstName: "Claudia",
@@ -54,6 +56,7 @@ const seeder = async () => {
       address: "Zuñiga 2245",
       phone: 098556124,
       role: "costumer",
+      isActive: true,
     },
     {
       firstName: "Agustina",
@@ -62,6 +65,7 @@ const seeder = async () => {
       address: "Trabajo 2259",
       phone: 099888741,
       role: "costumer",
+      isActive: true,
     },
     {
       firstName: "Matias",
@@ -70,24 +74,28 @@ const seeder = async () => {
       address: "maua 1232",
       phone: 099856231,
       role: "costumer",
+      isActive: true,
     },
     {
       firstName: "Jimena",
       lastName: "Marquez",
       email: "jime@marquez",
       role: "admin",
+      isActive: true,
     },
     {
       firstName: "Fito",
       lastName: "Paez",
       email: "fito@rosario.com",
       role: "admin",
+      isActive: true,
     },
     {
       firstName: "Manuela",
       lastName: "Cejas",
       email: "manu@cejas",
       role: "admin",
+      isActive: true,
     },
   ];
   const products = [
@@ -100,7 +108,7 @@ const seeder = async () => {
       price: 58,
       stock: 30,
       categoryId: 2,
-      isActive: "true",
+      isActive: true,
       slug: "jacket",
       isFeatured: true,
     },
@@ -113,7 +121,7 @@ const seeder = async () => {
       price: 21,
       stock: 50,
       categoryId: 1,
-      isActive: "true",
+      isActive: true,
       slug: "raglan",
       isFeatured: true,
     },
@@ -126,7 +134,7 @@ const seeder = async () => {
       price: 18,
       stock: 65,
       categoryId: 1,
-      isActive: "false",
+      isActive: true,
       slug: "stretchy",
       isFeatured: true,
     },
@@ -139,7 +147,7 @@ const seeder = async () => {
       price: 35,
       stock: 78,
       categoryId: 2,
-      isActive: "false",
+      isActive: true,
       slug: "linen",
       isFeatured: true,
     },
@@ -152,7 +160,7 @@ const seeder = async () => {
       price: 125,
       stock: 18,
       categoryId: 1,
-      isActive: "false",
+      isActive: true,
       slug: "coat",
       isFeatured: true,
     },
@@ -165,7 +173,7 @@ const seeder = async () => {
       price: 76,
       stock: 63,
       categoryId: 1,
-      isActive: "true",
+      isActive: true,
       slug: "jumpsuit",
       isFeatured: true,
     },
@@ -178,7 +186,7 @@ const seeder = async () => {
       price: 53,
       stock: 200,
       categoryId: 5,
-      isActive: "true",
+      isActive: true,
       slug: "watch",
       isFeatured: true,
     },
@@ -191,7 +199,7 @@ const seeder = async () => {
       price: 33,
       stock: 46,
       categoryId: 1,
-      isActive: "false",
+      isActive: true,
       slug: "jacket",
       isFeatured: true,
     },
@@ -204,7 +212,7 @@ const seeder = async () => {
       price: 12,
       stock: 66,
       categoryId: 1,
-      isActive: "false",
+      isActive: false,
       slug: "funny",
       isFeatured: true,
     },
@@ -217,7 +225,7 @@ const seeder = async () => {
       price: 49,
       stock: 15,
       categoryId: 4,
-      isActive: "true",
+      isActive: true,
       slug: "converse",
       isFeatured: true,
     },
@@ -230,7 +238,7 @@ const seeder = async () => {
       price: 6,
       stock: 53,
       categoryId: 1,
-      isActive: "false",
+      isActive: true,
       slug: "raglan",
       isFeatured: true,
     },
@@ -243,7 +251,7 @@ const seeder = async () => {
       price: 26,
       stock: 44,
       categoryId: 2,
-      isActive: "true",
+      isActive: true,
       slug: "linen",
       isFeatured: true,
     },
@@ -256,7 +264,7 @@ const seeder = async () => {
       price: 15,
       stock: 32,
       categoryId: 2,
-      isActive: "false",
+      isActive: true,
       slug: "belt",
       isFeatured: true,
     },
@@ -269,7 +277,7 @@ const seeder = async () => {
       price: 20,
       stock: 62,
       categoryId: 1,
-      isActive: "true",
+      isActive: true,
       slug: "crewneck",
       isFeatured: true,
     },
@@ -282,7 +290,7 @@ const seeder = async () => {
       price: 25,
       stock: 12,
       categoryId: 1,
-      isActive: "false",
+      isActive: true,
       slug: "vneck",
       isFeatured: true,
     },
@@ -295,7 +303,7 @@ const seeder = async () => {
       price: 150,
       stock: 22,
       categoryId: 5,
-      isActive: "true",
+      isActive: true,
       slug: "silver-watch",
       isFeatured: true,
     },
@@ -308,7 +316,7 @@ const seeder = async () => {
       price: 21,
       stock: 2,
       categoryId: 1,
-      isActive: "false",
+      isActive: true,
       slug: "neck-back",
       isFeatured: true,
     },
@@ -321,7 +329,7 @@ const seeder = async () => {
       price: 96,
       stock: 14,
       categoryId: 3,
-      isActive: "true",
+      isActive: true,
       slug: "leather-bag",
       isFeatured: true,
     },
@@ -334,7 +342,7 @@ const seeder = async () => {
       price: 30,
       stock: 15,
       categoryId: 3,
-      isActive: "false",
+      isActive: true,
       slug: "laptop-bag",
       isFeatured: true,
     },
@@ -347,7 +355,7 @@ const seeder = async () => {
       price: 40,
       stock: 3,
       categoryId: 4,
-      isActive: "true",
+      isActive: true,
       slug: "sneakers",
       isFeatured: true,
     },
@@ -381,7 +389,7 @@ const seeder = async () => {
   await models.Product.bulkCreate(products);
   await models.User.bulkCreate(users);
   await models.Status.bulkCreate(status);
-  console.log("[Database] Se corrió el seeder de Articles, Users y Comments.");
+  console.log("[Database] Se corrió el seeder.");
 };
 
 module.exports = seeder;
