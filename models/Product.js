@@ -27,13 +27,14 @@ module.exports = (sequelize, DataTypes) => {
     isFeatured: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
+
+      isActive: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+      },
     },
     slug: {
       type: DataTypes.STRING,
-    },
-    isActive: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
     },
   });
   return Product;

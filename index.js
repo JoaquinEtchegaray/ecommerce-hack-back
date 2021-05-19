@@ -9,16 +9,17 @@ const seeder = require("./seeder");
 
 const db = require("./models/index");
 
-/* db.sequelize.sync({ force: true }).then(() => {
-  seeder();
-  console.log("Tables created!");
-}); */
+// SOLO PARA CREAR TABLA DESDE CERO y borra tablas viejas
+// db.sequelize.sync({ force: true }).then(() => {
+//   seeder();
+//   console.log("Tables created!");
+// });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //app.use(adminRoutes);
 
-//app.use(routes);
+app.use(routes);
 
 // app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(__dirname + "/public"));
