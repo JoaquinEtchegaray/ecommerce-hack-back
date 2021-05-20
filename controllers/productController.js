@@ -7,7 +7,16 @@ module.exports = {
   showHome: async function (req, res) {
     const products = await Product.findAll({
       order: [["createdAt", "DESC"]],
+      where: { isFeatured: true },
+    });
+    res.json({ products });
+  },
+
+  showSingleProductSlug: async function (req, res) {
+    try {
+      let slug = req.params.slug;
       const product = await Product.findAll({
+        where: { slug: slug },
       });
 
       res.json({ product });
