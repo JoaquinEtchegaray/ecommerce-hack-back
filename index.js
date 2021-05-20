@@ -13,11 +13,11 @@ app.set("port", 3000);
 //   seeder();
 //   console.log("Tables created!");
 // });
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(routes);
-app.use(cors());
 
 app.listen(app.get("port"), () => {
   console.log(`Server running in http://localhost:${app.get("port")}`);
