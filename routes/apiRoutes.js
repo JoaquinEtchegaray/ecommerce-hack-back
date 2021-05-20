@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-// const registerController = require("../controllers/registerController");
+const registerController = require("../controllers/registerController");
 // const loginController = require("../controllers/loginController");
 const productController = require("../controllers/productController");
 // const checkToken = require("express-jwt");
@@ -10,13 +10,14 @@ const productController = require("../controllers/productController");
 // router.post("/tokens", loginController.login);
 
 // CRUD de usuarios
-// router.post("/users", registerController.store);
+router.post("/users", registerController.store);
 // router.patch("/users/:id", registerController.update);
 // router.delete("/users/:id", registerController.destroy); //no se puede borrar un susario si todavía no borraste las órdenes de dicho usuario
 
 // Mostrar productos en home y en página de producto
 router.get("/products", productController.showHome);
 router.get("/products/:slug", productController.showSingleProductSlug);
+router.get("/products/:id", productController.showSingleProductId);
 router.get(
   "/products/category/:categoryId",
   productController.showByCategoryId

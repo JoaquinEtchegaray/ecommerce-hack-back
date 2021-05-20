@@ -21,6 +21,8 @@ const seeder = async () => {
       phone: 09983215,
       role: "costumer",
       isActive: true,
+      userName: "hola1",
+      password: "chau",
     },
     {
       firstName: "Daniel",
@@ -30,6 +32,8 @@ const seeder = async () => {
       phone: 09523169,
       role: "costumer",
       isActive: true,
+      userName: "hola2",
+      password: "chau",
     },
     {
       firstName: "Laura",
@@ -39,6 +43,8 @@ const seeder = async () => {
       phone: 094222557,
       role: "costumer",
       isActive: true,
+      userName: "hola3",
+      password: "chau",
     },
     {
       firstName: "Pedro",
@@ -48,6 +54,8 @@ const seeder = async () => {
       phone: 099522741,
       role: "costumer",
       isActive: true,
+      userName: "hola4",
+      password: "chau",
     },
     {
       firstName: "Claudia",
@@ -57,6 +65,8 @@ const seeder = async () => {
       phone: 098556124,
       role: "costumer",
       isActive: true,
+      userName: "hola5",
+      password: "chau",
     },
     {
       firstName: "Agustina",
@@ -66,6 +76,8 @@ const seeder = async () => {
       phone: 099888741,
       role: "costumer",
       isActive: true,
+      userName: "hola6",
+      password: "chau",
     },
     {
       firstName: "Matias",
@@ -75,6 +87,8 @@ const seeder = async () => {
       phone: 099856231,
       role: "costumer",
       isActive: true,
+      userName: "hola7",
+      password: "chau",
     },
     {
       firstName: "Jimena",
@@ -82,6 +96,8 @@ const seeder = async () => {
       email: "jime@marquez",
       role: "admin",
       isActive: true,
+      userName: "hola8",
+      password: "chau",
     },
     {
       firstName: "Fito",
@@ -89,6 +105,8 @@ const seeder = async () => {
       email: "fito@rosario.com",
       role: "admin",
       isActive: true,
+      userName: "hola9",
+      password: "chau",
     },
     {
       firstName: "Manuela",
@@ -96,6 +114,8 @@ const seeder = async () => {
       email: "manu@cejas",
       role: "admin",
       isActive: true,
+      userName: "hola10",
+      password: "chau",
     },
   ];
   const products = [

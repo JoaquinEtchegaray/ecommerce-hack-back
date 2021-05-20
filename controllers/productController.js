@@ -9,18 +9,33 @@ module.exports = {
       order: [["createdAt", "DESC"]],
       where: { isFeatured: true },
     });
-    console.log(products);
-    res.json({ products });
+    // console.log(products);
+    res.json(products);
   },
 
   showSingleProductSlug: async function (req, res) {
     try {
       let slug = req.params.slug;
-      const product = await Product.findAll({
+      const product = await Product.findOne({
         where: { slug: slug },
       });
 
-      res.json({ product });
+      res.json(product);
+    } catch (error) {
+      res.status(400).json({
+        error,
+      });
+    }
+  },
+
+  showSingleProductId: async function (req, res) {
+    try {
+      let id = req.body.id;
+      const product = await Product.findOne({
+        where: { id: id },
+      });
+
+      res.json(product);
     } catch (error) {
       res.status(400).json({
         error,
@@ -66,7 +81,7 @@ module.exports = {
         isActive,
         slug: slugify(name.toLowerCase()),
       });
-      res.json({ product });
+      res.json(product);
     } catch (err) {
       res.status(400).json({
         err,

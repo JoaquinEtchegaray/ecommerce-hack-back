@@ -10,6 +10,15 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    userName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -22,10 +31,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     role: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     isActive: {
       type: DataTypes.BOOLEAN,
+      allowNull: true,
+    },
+    password: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
   });

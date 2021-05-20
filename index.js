@@ -5,7 +5,7 @@ const cors = require("cors");
 const routes = require("./routes/apiRoutes");
 const seeder = require("./seeder");
 app.set("port", 3000);
-// const db = require("./models/index");
+const db = require("./models/index");
 
 // SOLO PARA CREAR TABLA DESDE CERO (borra tablas viejas y carga seeder)
 
@@ -13,6 +13,7 @@ app.set("port", 3000);
 //   seeder();
 //   console.log("Tables created!");
 // });
+
 app.use(cors());
 
 app.use(express.json());
