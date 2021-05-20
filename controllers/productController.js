@@ -9,7 +9,7 @@ module.exports = {
       order: [["createdAt", "DESC"]],
       where: { isFeatured: true },
     });
-    console.log(products);
+    //console.log(products);
     res.json({ products });
   },
 
