@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const registerController = require("../controllers/registerController");
-const loginController = require("../controllers/loginController");
+// const registerController = require("../controllers/registerController");
+// const loginController = require("../controllers/loginController");
 const productController = require("../controllers/productController");
-const checkToken = require("express-jwt");
+// const checkToken = require("express-jwt");
 // const checkAuthor = require("../middlewares/checkAuthor");
 
 // Login y token
