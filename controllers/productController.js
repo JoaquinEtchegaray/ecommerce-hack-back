@@ -46,11 +46,11 @@ module.exports = {
   showByCategoryId: async function (req, res) {
     try {
       let categoryId = req.params.categoryId;
-      const product = await Product.findAll({
+      const products = await Product.findAll({
         where: { categoryId: categoryId },
       });
 
-      res.json({ product });
+      res.json({ products });
     } catch (error) {
       res.status(400).json({
         error,
