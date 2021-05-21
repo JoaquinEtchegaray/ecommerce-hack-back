@@ -9,7 +9,6 @@ module.exports = {
       order: [["createdAt", "DESC"]],
       where: { isFeatured: true },
     });
-    console.log(products);
     res.json({ products });
   },
 
@@ -35,7 +34,7 @@ module.exports = {
         where: { id: id },
       });
 
-      res.json(product);
+      res.json({ product });
     } catch (error) {
       res.status(400).json({
         error,
@@ -46,11 +45,11 @@ module.exports = {
   showByCategoryId: async function (req, res) {
     try {
       let categoryId = req.params.categoryId;
-      const product = await Product.findAll({
+      const products = await Product.findAll({
         where: { categoryId: categoryId },
       });
-
-      res.json({ product });
+      console.log({ products });
+      res.json({ products });
     } catch (error) {
       res.status(400).json({
         error,

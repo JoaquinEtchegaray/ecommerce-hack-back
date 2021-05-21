@@ -13,10 +13,10 @@ const db = require("./models/index");
 //   seeder();
 //   console.log("Tables created!");
 // });
-var corsOptions = {
-  origin: "http://example.com",
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
+// var corsOptions = {
+//   origin: "http://example.com",
+//   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+// };
 
 // app.use(cors(corsOptions));
 app.use(cors());
