@@ -15,11 +15,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       unique: true,
     },
-    password: {
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    email: {
+    password: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -31,15 +31,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     role: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
+      defaultValue: "client",
     },
     isActive: {
       type: DataTypes.BOOLEAN,
-      allowNull: true,
-    },
-    password: {
-      type: DataTypes.STRING,
       allowNull: false,
+      defaultValue: true,
     },
   });
 
