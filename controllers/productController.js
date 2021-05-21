@@ -19,7 +19,7 @@ module.exports = {
         where: { slug: slug },
       });
 
-      res.json({ product });
+      res.json(product);
     } catch (error) {
       res.status(400).json({
         error,
