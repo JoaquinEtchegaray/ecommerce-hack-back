@@ -9,7 +9,6 @@ module.exports = {
       order: [["createdAt", "DESC"]],
       where: { isFeatured: true },
     });
-    console.log(products);
     res.json({ products });
   },
 
@@ -35,7 +34,7 @@ module.exports = {
         where: { id: id },
       });
 
-      res.json(product);
+      res.json({ product });
     } catch (error) {
       res.status(400).json({
         error,
@@ -49,7 +48,7 @@ module.exports = {
       const products = await Product.findAll({
         where: { categoryId: categoryId },
       });
-
+      console.log({ products });
       res.json({ products });
     } catch (error) {
       res.status(400).json({
