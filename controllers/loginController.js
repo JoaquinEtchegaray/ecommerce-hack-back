@@ -1,6 +1,6 @@
 const validator = require("email-validator");
 const bcrypt = require("bcryptjs");
-const User = require("../models/User");
+const { User } = require("../models/index");
 const jwt = require("jsonwebtoken");
 
 module.exports = {
