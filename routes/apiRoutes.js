@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const registerController = require("../controllers/registerController");
-// const loginController = require("../controllers/loginController");
+const loginController = require("../controllers/loginController");
 const productController = require("../controllers/productController");
 // const checkToken = require("express-jwt");
 // const checkAuthor = require("../middlewares/checkAuthor");
 
 // Login y token
-// router.post("/tokens", loginController.login);
+router.post("/tokens", loginController.login);
 
 // CRUD de usuarios
 router.post("/users", registerController.store);
