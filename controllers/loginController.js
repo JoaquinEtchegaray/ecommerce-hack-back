@@ -36,6 +36,7 @@ module.exports = {
     res.json({
       userId: userDB.id,
       userName: userDB.userName,
+      role: userDB.role,
       token,
     });
   },
