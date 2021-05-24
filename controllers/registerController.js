@@ -18,8 +18,8 @@ module.exports = {
           lastName,
           userName,
           email,
-          address,
-          phone,
+          // address,
+          // phone,
           password: hashPassword(password),
         });
         console.log("Se registró el usuario");
@@ -29,7 +29,7 @@ module.exports = {
             email,
             userId: userSaved.id,
           },
-          process.env.SECRET_TEXT
+          "" + process.env.SECRET_TEXT
         );
         res.json({
           userId: userSaved.id,

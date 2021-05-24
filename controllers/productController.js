@@ -12,6 +12,13 @@ module.exports = {
     res.json({ products });
   },
 
+  showAdminHome: async function (req, res) {
+    const products = await Product.findAll({
+      order: [["createdAt", "DESC"]],
+    });
+    res.json({ products });
+  },
+
   showSingleProductSlug: async function (req, res) {
     try {
       let slug = req.params.slug;
