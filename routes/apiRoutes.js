@@ -16,7 +16,7 @@ router.post("/users", registerController.store);
 
 // Mostrar productos en home y en página de producto
 router.get("/products", productController.showHome);
-router.get("/products", productController.showAdminHome);
+router.get("/products/admin", productController.showAdminHome);
 
 router.get("/products/:slug", productController.showSingleProductSlug);
 router.get("/products/:id", productController.showSingleProductId);
