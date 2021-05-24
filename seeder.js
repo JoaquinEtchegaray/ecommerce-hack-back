@@ -130,7 +130,7 @@ const seeder = async () => {
       categoryId: 2,
       isActive: true,
       slug: "light-jacket",
-      isFeatured: true,
+      isFeatured: false,
     },
     {
       name: "Women's Stretch Cotton Raglan Sleeve Tee",
