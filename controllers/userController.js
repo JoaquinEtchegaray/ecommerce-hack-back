@@ -1,10 +1,18 @@
-const User = require("../models/User");
+const { User } = require("../models/index");
 const validator = require("email-validator");
-const formidable = require("formidable");
+// const formidable = require("formidable");
 
 module.exports = {
   //user update
-  userUpdate: async function (req, res) {
+
+  showUsers: async function (req, res) {
+    const users = await User.findAll({
+      order: [["createdAt", "DESC"]],
+    });
+    res.json({ users });
+  },
+
+  updateUser: async function (req, res) {
     try {
       let id = req.params.id; //viene username o viene id?
       let { firstName, lastName, email, phone, password } = req.body;
@@ -35,7 +43,7 @@ module.exports = {
     }
   },
   //admin update
-  adminUpdate: async function (req, res) {
+  updateUserAdmin: async function (req, res) {
     try {
       let id = req.params.id;
       let { role, isActive } = req.body;

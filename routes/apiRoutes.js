@@ -4,11 +4,16 @@ const registerController = require("../controllers/registerController");
 const loginController = require("../controllers/loginController");
 const productController = require("../controllers/productController");
 const categoryController = require("../controllers/categoryController");
+const userController = require("../controllers/userController");
 // const checkAuthor = require("../middlewares/checkAuthor");
 
 router.post("/tokens", loginController.login);
 
 router.post("/users", registerController.store);
+
+router.get("/users", userController.showUsers);
+// router.patch("/users", userController.updateUsers);
+
 // router.patch("/users/:id", registerController.update);
 
 router.get("/products", productController.showHome);
@@ -21,11 +26,11 @@ router.get(
   productController.showByCategoryId
 );
 
-router.post("/products", productController.create);
-router.patch("/products/:id", productController.update); // el id habría que pasarlo por params o por el body?
+router.post("/products", productController.createProduct);
+router.patch("/products/:id", productController.updateProduct); // el id habría que pasarlo por params o por el body?
 
-router.post("/category", categoryController.create);
-router.patch("/category/:id", categoryController.update);
+router.post("/category", categoryController.createCategory);
+router.patch("/category/:id", categoryController.updateCategory);
 
 // router.use(
 //   checkToken({ secret: process.env.SECRET_TEXT, algorithms: ["HS256"] })

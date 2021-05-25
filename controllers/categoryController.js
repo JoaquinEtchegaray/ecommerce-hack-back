@@ -1,7 +1,7 @@
 const { Category } = require("../models/index");
 
 module.exports = {
-  create: async function (req, res) {
+  createCategory: async function (req, res) {
     try {
       let { name } = req.body;
       const category = await Category.create({
@@ -17,7 +17,7 @@ module.exports = {
     }
   },
 
-  update: async function (req, res) {
+  updateCategory: async function (req, res) {
     try {
       let id = req.params.id;
       let { name } = req.body;

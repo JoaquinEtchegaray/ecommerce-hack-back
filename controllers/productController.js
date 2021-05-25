@@ -62,7 +62,7 @@ module.exports = {
     }
   },
 
-  create: async function (req, res) {
+  createProduct: async function (req, res) {
     try {
       let {
         name,
@@ -93,7 +93,7 @@ module.exports = {
     }
   },
 
-  update: async function (req, res) {
+  updateProduct: async function (req, res) {
     try {
       let id = req.params.id;
       let {
