@@ -1,6 +1,4 @@
 const { Product } = require("../models/index");
-// const path = require("path");
-// const fs = require("fs");
 const slugify = require("slugify");
 
 module.exports = {
