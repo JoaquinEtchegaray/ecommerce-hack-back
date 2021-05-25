@@ -1,6 +1,13 @@
 const { Category } = require("../models/index");
 
 module.exports = {
+  showCategories: async function (req, res) {
+    const categories = await Category.findAll({
+      order: [["createdAt", "DESC"]],
+    });
+    res.json({ categories });
+  },
+
   createCategory: async function (req, res) {
     try {
       let { name } = req.body;
