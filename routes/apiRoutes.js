@@ -11,7 +11,7 @@ router.post("/tokens", loginController.login);
 
 // CRUD de usuarios
 router.post("/users", registerController.store);
-router.patch("/users/:id", registerController.update);
+// router.patch("/users/:id", registerController.update);
 // router.delete("/users/:id", registerController.destroy); //no se puede borrar un susario si todavía no borraste las órdenes de dicho usuario
 
 // Mostrar productos en home y en página de producto
