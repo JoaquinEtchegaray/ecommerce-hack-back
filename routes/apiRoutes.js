@@ -28,6 +28,7 @@ router.get(
 router.post("/products", productController.createProduct);
 router.patch("/products/:id", productController.updateProduct); // el id habría que pasarlo por params o por el body?
 
+router.get("/category", categoryController.showCategories);
 router.post("/category", categoryController.createCategory);
 router.patch("/category/:id", categoryController.updateCategory);
 
