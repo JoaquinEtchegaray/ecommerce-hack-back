@@ -12,6 +12,21 @@ module.exports = {
     res.json({ users });
   },
 
+  showUser: async function (req, res) {
+    try {
+      let id = req.params.id;
+      const user = await User.findOne({
+        where: { id: id },
+      });
+
+      res.json({ user });
+    } catch (error) {
+      res.status(400).json({
+        error,
+      });
+    }
+  },
+
   updateUser: async function (req, res) {
     try {
       let id = req.params.id;

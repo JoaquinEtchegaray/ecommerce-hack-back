@@ -12,8 +12,15 @@ router.post("/tokens", loginController.login);
 router.post("/users", registerController.store);
 
 router.get("/users", userController.showUsers);
+<<<<<<< Updated upstream
 router.patch("/users/:id", userController.updateUser);
 router.patch("/usersAdmin/:id", userController.updateUserAdmin);
+=======
+router.get("/user/:id", userController.showUser);
+// router.patch("/users", userController.updateUsers);
+
+// router.patch("/users/:id", registerController.update);
+>>>>>>> Stashed changes
 
 router.get("/products", productController.showHome);
 router.get("/products/admin", productController.showAdminHome);
