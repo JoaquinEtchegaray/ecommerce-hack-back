@@ -12,9 +12,8 @@ router.post("/tokens", loginController.login);
 router.post("/users", registerController.store);
 
 router.get("/users", userController.showUsers);
-// router.patch("/users", userController.updateUsers);
-
-// router.patch("/users/:id", registerController.update);
+router.patch("/users/:id", userController.updateUser);
+router.patch("/usersAdmin/:id", userController.updateUserAdmin);
 
 router.get("/products", productController.showHome);
 router.get("/products/admin", productController.showAdminHome);

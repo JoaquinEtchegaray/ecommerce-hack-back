@@ -2,9 +2,9 @@ const { User } = require("../models/index");
 const validator = require("email-validator");
 // const formidable = require("formidable");
 
-module.exports = {
-  //user update
+const hashPassword = require("../hashPassword/hashPassword");
 
+module.exports = {
   showUsers: async function (req, res) {
     const users = await User.findAll({
       order: [["createdAt", "DESC"]],
@@ -14,21 +14,25 @@ module.exports = {
 
   updateUser: async function (req, res) {
     try {
-      let id = req.params.id; //viene username o viene id?
-      let { firstName, lastName, email, phone, password } = req.body;
+      let id = req.params.id;
+      let { firstName, lastName, email, phone, password, address } = req.body;
       if (
         validator.validate(email) &&
-        firstname.length > 1 &&
-        lastname.length > 1 &&
-        phone.length > 1
+        firstName.length > 1 &&
+        lastName.length > 1 &&
+        email.length > 1 &&
+        password.length > 1 &&
+        phone.length > 1 &&
+        address.length > 1
       ) {
         const user = await User.findByPk(id);
         await user.update({
           firstName,
           lastName,
           email,
+          password: hashPassword(password),
           phone,
-          password,
+          address,
         });
         res.json({
           ok: true,
@@ -42,7 +46,7 @@ module.exports = {
       });
     }
   },
-  //admin update
+
   updateUserAdmin: async function (req, res) {
     try {
       let id = req.params.id;
