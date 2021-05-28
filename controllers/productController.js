@@ -95,34 +95,18 @@ module.exports = {
 
   updateProduct: async function (req, res) {
     try {
-      let id = req.params.id;
-      let {
-        name,
-        description,
-        image,
-        price,
-        categoryId,
-        stock,
-        isFeatured,
-        isActive,
-      } = req.body;
+      const id = req.params.id;
       const product = await Product.findByPk(id);
+      console.log(product);
       await product.update({
-        name,
-        description,
-        image,
-        price,
-        categoryId,
-        stock,
-        isFeatured,
-        isActive,
-        slug: slugify(name.toLowerCase()),
+        ...req.body,
+        slug: slugify(req.body.name.toLowerCase()),
       });
       res.json({
         ok: true,
       });
     } catch (error) {
-      res.status(404).json({
+      res.status(500).json({
         error,
       });
     }
