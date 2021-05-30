@@ -5,14 +5,14 @@ const validator = require("email-validator");
 const hashPassword = require("../hashPassword/hashPassword");
 
 module.exports = {
-  showUsers: async function (req, res) {
+  index: async function (req, res) {
     const users = await User.findAll({
       order: [["createdAt", "DESC"]],
     });
     res.json({ users });
   },
 
-  showUser: async function (req, res) {
+  show: async function (req, res) {
     try {
       let id = req.params.id;
       const user = await User.findOne({
@@ -27,7 +27,7 @@ module.exports = {
     }
   },
 
-  updateUser: async function (req, res) {
+  update: async function (req, res) {
     try {
       let id = req.params.id;
       let { firstName, lastName, email, phone, password, address } = req.body;
@@ -45,20 +45,19 @@ module.exports = {
           firstName,
           lastName,
           email,
-          password: hashPassword(password),
           phone,
           address,
+          password: hashPassword(password),
         });
         res.json({
           ok: true,
         });
       } else {
-        res.status(400).json("Error updating");
+        res.status(500).json("Error updating 1");
       }
     } catch (error) {
-      res.status(404).json({
-        error,
-      });
+      console.log(error);
+      res.status(500).json("Error updating 2");
     }
   },
 
