@@ -316,9 +316,9 @@ const seeder = async () => {
     },
     {
       name: "Silver watch",
-      description:
-        "https://preview.colorlib.com/theme/cozastore/images/xproduct-15.jpg.pagespeed.ic.LNG1pmoqOY.webp",
       image:
+        "https://preview.colorlib.com/theme/cozastore/images/xproduct-15.jpg.pagespeed.ic.LNG1pmoqOY.webp",
+      description:
         "Stainless Steel Silver Round Shaped Slim Case - Milanese Mesh Band - Adjustable Fold Over Clasp Closure Ensures A Custom Fit",
       price: 150,
       stock: 22,
