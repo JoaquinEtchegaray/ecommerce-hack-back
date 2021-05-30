@@ -9,10 +9,10 @@ const db = require("./models/index");
 
 // SOLO PARA CREAR TABLA DESDE CERO (borra tablas viejas y carga seeder)
 
-db.sequelize.sync({ force: true }).then(() => {
-  seeder();
-  console.log("Tables created!");
-});
+// db.sequelize.sync({ force: true }).then(() => {
+//   seeder();
+//   console.log("Tables created!");
+// });
 
 // var corsOptions = {
 //   origin: "http://example.com",
