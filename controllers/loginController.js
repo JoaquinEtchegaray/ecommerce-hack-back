@@ -29,7 +29,7 @@ module.exports = {
     }
 
     let token = jwt.sign(
-      { userId: userDB.id, userName: userDB.userName, email: userDB.email },
+      { userName: userDB.userName, email: userDB.email, userId: userDB.id },
       process.env.SECRET_TEXT
     );
 
