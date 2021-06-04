@@ -35,9 +35,9 @@ router.post("/products", checkAdmin, productController.create);
 
 router.post("/cart", cartController.createOrder);
 
-// router.use(
-//   checkToken({ secret: process.env.SECRET_TEXT, algorithms: ["HS256"] })
-// );
+/* router.use(
+  checkToken({ secret: process.env.SECRET_TEXT, algorithms: ["HS256"] })
+); */
 router.patch("/products/:id", checkAdmin, productController.update);
 router.patch("/usersAdmin/:id", checkAdmin, userController.updateUserAdmin);
 router.patch("/category/:id", checkAdmin, categoryController.updateCategory);
