@@ -5,6 +5,7 @@ const loginController = require("../controllers/loginController");
 const productController = require("../controllers/productController");
 const categoryController = require("../controllers/categoryController");
 const userController = require("../controllers/userController");
+const cartController = require("../controllers/cartController");
 // const checkAuthor = require("../middlewares/checkAuthor");
 
 router.post("/tokens", loginController.login);
@@ -35,6 +36,8 @@ router.patch("/products/:id", productController.updateProduct); // el id habría
 router.get("/category", categoryController.showCategories);
 router.post("/category", categoryController.createCategory);
 router.patch("/category/:id", categoryController.updateCategory);
+
+router.post("/cart", cartController.createOrder);
 
 // router.use(
 //   checkToken({ secret: process.env.SECRET_TEXT, algorithms: ["HS256"] })
