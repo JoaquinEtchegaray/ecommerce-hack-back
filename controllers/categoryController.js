@@ -3,7 +3,7 @@ const { Category } = require("../models/index");
 module.exports = {
   showCategories: async function (req, res) {
     const categories = await Category.findAll({
-      order: [["createdAt", "DESC"]],
+      order: [["id", "ASC"]],
     });
     res.json({ categories });
   },
