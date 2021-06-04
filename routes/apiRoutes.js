@@ -5,7 +5,7 @@ const loginController = require("../controllers/loginController");
 const productController = require("../controllers/productController");
 const categoryController = require("../controllers/categoryController");
 const userController = require("../controllers/userController");
-const cartController = require("../controllers/cartController");
+const orderController = require("../controllers/orderController");
 const checkAdmin = require("../middlewares/checkAdmin");
 const checkToken = require("express-jwt");
 
@@ -28,10 +28,11 @@ router.get("/category", checkAdmin, categoryController.showCategories);
 router.get("/users", checkAdmin, userController.index);
 router.get("/users/:id", userController.show);
 router.get("/admin/products", checkAdmin, productController.indexAdminHome);
+router.get("/orders", checkAdmin, orderController.index);
 
 router.post("/category", checkAdmin, categoryController.createCategory);
 router.post("/products", checkAdmin, productController.create);
-router.post("/cart", cartController.createOrder);
+router.post("/orders", orderController.createOrder);
 
 router.patch("/products/:id", checkAdmin, productController.update);
 router.patch("/usersAdmin/:id", checkAdmin, userController.updateUserAdmin);

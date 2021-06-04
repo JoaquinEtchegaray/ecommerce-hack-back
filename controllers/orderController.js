@@ -1,33 +1,50 @@
-const { Product } = require("../models/index");
+const { OrderProduct, Order, Product, Status } = require("../models/index");
 
 module.exports = {
-  create: async function (req, res) {
+  createOrder: async function (req, res) {
     try {
-      let {
-        name,
-        description,
-        image,
-        price,
-        categoryId,
-        stock,
-        isFeatured,
-        isActive,
-      } = req.body;
-      const product = await Product.create({
-        name,
-        description,
-        image,
-        price,
-        categoryId,
-        stock,
-        isFeatured,
-        isActive,
-        slug: slugify(name.toLowerCase()),
+      console.log("hola");
+      let { userId } = req.user;
+      let { cart } = req.body;
+      let totalPrice = 0;
+      let products = [];
+      for (let i = 0; i < cart.length; i++) {
+        totalPrice += cart[i].price * cart[i].quantity;
+      }
+      const order = await Order.create({
+        userId,
+        statusId: 2,
+        totalPrice,
       });
-      res.json(product);
+      for (let i = 0; i < cart.length; i++) {
+        let singleOrder = {
+          productId: cart[i].id,
+          orderId: order.id,
+          productQuantity: cart[i].quantity,
+          productPrice: cart[i].price,
+        };
+        products.push(singleOrder);
+      }
+
+      await OrderProduct.bulkCreate(products);
+      res.json({ ok: true });
     } catch (err) {
-      res.status(400).json({
-        err,
+      console.log(err.message);
+      res.status(400).json({ err });
+    }
+  },
+
+  index: async function (req, res) {
+    try {
+      const orders = await Order.findAll({
+        include: [Product, Status],
+
+        order: [["id", "ASC"]],
+      });
+      res.json(orders);
+    } catch (error) {
+      res.json({
+        error: error.message,
       });
     }
   },
