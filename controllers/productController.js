@@ -2,7 +2,7 @@ const { Product } = require("../models/index");
 const slugify = require("slugify");
 
 module.exports = {
-  showHome: async function (req, res) {
+  index: async function (req, res) {
     const products = await Product.findAll({
       order: [["createdAt", "DESC"]],
       where: { isFeatured: true },
@@ -10,7 +10,7 @@ module.exports = {
     res.json({ products });
   },
 
-  showAdminHome: async function (req, res) {
+  indexAdminHome: async function (req, res) {
     const products = await Product.findAll({
       order: [["createdAt", "DESC"]],
     });
@@ -47,7 +47,7 @@ module.exports = {
     }
   },
 
-  showByCategoryId: async function (req, res) {
+  indexByCategoryId: async function (req, res) {
     try {
       let categoryId = req.params.categoryId;
       const products = await Product.findAll({
@@ -62,7 +62,7 @@ module.exports = {
     }
   },
 
-  createProduct: async function (req, res) {
+  create: async function (req, res) {
     try {
       let {
         name,
@@ -93,7 +93,7 @@ module.exports = {
     }
   },
 
-  updateProduct: async function (req, res) {
+  update: async function (req, res) {
     try {
       const id = req.params.id;
       const product = await Product.findByPk(id);

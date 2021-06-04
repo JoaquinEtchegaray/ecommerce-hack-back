@@ -29,7 +29,7 @@ module.exports = {
             email,
             userId: userSaved.id,
           },
-          "" + process.env.SECRET_TEXT
+          process.env.SECRET_TEXT
         );
         res.json({
           userId: userSaved.id,
