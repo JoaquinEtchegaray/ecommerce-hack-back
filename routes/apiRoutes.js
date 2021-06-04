@@ -6,7 +6,6 @@ const productController = require("../controllers/productController");
 const categoryController = require("../controllers/categoryController");
 const userController = require("../controllers/userController");
 const cartController = require("../controllers/cartController");
-
 const checkAdmin = require("../middlewares/checkAdmin");
 const checkToken = require("express-jwt");
 
@@ -32,7 +31,6 @@ router.get("/admin/products", checkAdmin, productController.indexAdminHome);
 
 router.post("/category", checkAdmin, categoryController.createCategory);
 router.post("/products", checkAdmin, productController.create);
-
 router.post("/cart", cartController.createOrder);
 
 router.patch("/products/:id", checkAdmin, productController.update);
