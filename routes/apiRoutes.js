@@ -5,6 +5,8 @@ const loginController = require("../controllers/loginController");
 const productController = require("../controllers/productController");
 const categoryController = require("../controllers/categoryController");
 const userController = require("../controllers/userController");
+const cartController = require("../controllers/cartController");
+// const checkAuthor = require("../middlewares/checkAuthor");
 const checkAdmin = require("../middlewares/checkAdmin");
 const checkToken = require("express-jwt");
 
@@ -31,6 +33,11 @@ router.get("/admin/products", checkAdmin, productController.indexAdminHome);
 router.post("/category", checkAdmin, categoryController.createCategory);
 router.post("/products", checkAdmin, productController.create);
 
+router.post("/cart", cartController.createOrder);
+
+/* router.use(
+  checkToken({ secret: process.env.SECRET_TEXT, algorithms: ["HS256"] })
+); */
 router.patch("/products/:id", checkAdmin, productController.update);
 router.patch("/usersAdmin/:id", checkAdmin, userController.updateUserAdmin);
 router.patch("/category/:id", checkAdmin, categoryController.updateCategory);
