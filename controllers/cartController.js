@@ -4,22 +4,32 @@ module.exports = {
   createOrder: async function (req, res) {
     try {
       console.log("hola");
-      let { user } = req.body;
+      let { userId } = req.user;
       let { cart } = req.body;
       let totalPrice = 0;
-      // let products = [];
+      let products = [];
       for (let i = 0; i < cart.length; i++) {
         totalPrice += cart[i].price * cart[i].quantity;
       }
-      await Order.create({
-        userId: user.userId,
-        status: 2,
+      const order = await Order.create({
+        userId,
+        statusId: 2,
         totalPrice,
       });
+      for (let i = 0; i < cart.length; i++) {
+        let singleOrder = {
+          productId: cart[i].id,
+          orderId: order.id,
+          productQuantity: cart[i].quantity,
+          productPrice: cart[i].price,
+        };
+        products.push(singleOrder);
+      }
+
+      await OrderProduct.bulkCreate(products);
       res.json({ ok: true });
-      // await OrderProduct.bulkCreate(products);
     } catch (err) {
-      console.log("chau");
+      console.log(err.message);
       res.status(400).json({ err });
     }
   },
