@@ -117,6 +117,15 @@ const seeder = async () => {
       userName: "hola10",
       password: "chau",
     },
+    {
+      firstName: "Admin",
+      lastName: "Admin",
+      email: "admin@admin",
+      role: "admin",
+      isActive: true,
+      userName: "admin",
+      password: "admin",
+    },
   ];
   const products = [
     {
